@@ -77,7 +77,22 @@ public class DemoApplicationTests {
     @Test
     public void doSet() {
         System.out.println("doSet");
-        Collection<UserRequest> userRequestCollection = userRequestService.getAllUserRequests();
+        userRequestService.clear();
+
+        for (int i = 0; i < 10; i++) {
+            UserRequest userRequest = new UserRequest();
+
+            Collection<String> pictures = new ArrayList<>();
+
+            pictures.add("https://i.ytimg.com/vi/YCaGYUIfdy4/maxresdefault.jpg");
+            pictures.add("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+
+            userRequest.setPictureUrls(pictures);
+            userRequest.setAvatarPictures(pictures);
+
+            userRequestService.save(userRequest);
+        }
+            Collection<UserRequest> userRequestCollection = userRequestService.getAllUserRequests();
 
         for (UserRequest userRequest : userRequestCollection) {
             Collection<String> pictures = new ArrayList<>();
@@ -91,8 +106,6 @@ public class DemoApplicationTests {
             userRequestService.save(userRequest);
 
             System.out.println("User ID: " + userRequest.getId());
-            System.out.println(userRequest.getPictureUrls());
-            System.out.println(userRequest.getAvatarPictures());
 
             Assert.assertEquals(2, userRequest.getPictureUrls().size());
             Assert.assertEquals(2, userRequest.getAvatarPictures().size());

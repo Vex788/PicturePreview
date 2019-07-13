@@ -24,6 +24,9 @@ public class SetController {
     @GetMapping("/set")
     public UserIdDTO onSet(@RequestBody PictureUrlsDTO pictureUrlsDTO) {
         UserRequest userRequest = new UserRequest();
+
+        userRequestService.save(userRequest); // save data
+
         // download pictures
         Collection<String> avatarPictures =
                 ImageDownload.download(userRequest.getId(), pictureUrlsDTO.getPictureUrls());
@@ -33,7 +36,7 @@ public class SetController {
         userRequest.setPictureUrls(pictureUrlsDTO.getPictureUrls());
         userRequest.setAvatarPictures(avatarPictures);
 
-        userRequestService.save(userRequest); // save data
+        userRequestService.save(userRequest);
 
         return new UserIdDTO(userRequest.getId());
     }
