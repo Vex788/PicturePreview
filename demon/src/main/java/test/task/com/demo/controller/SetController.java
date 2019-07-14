@@ -25,19 +25,19 @@ public class SetController {
     public UserIdDTO onSet(@RequestBody PictureUrlsDTO pictureUrlsDTO) {
         UserRequest userRequest = new UserRequest();
 
-        userRequestService.save(userRequest); // save data
+        userRequestService.save(userRequest); // hardcode for get new id
 
         // download pictures
         Collection<String> avatarPictures =
                 ImageDownload.download(userRequest.getId(), pictureUrlsDTO.getPictureUrls());
-        // get 100x100
+        // resize 100x100
         ImageResize.resize(avatarPictures);
 
-        userRequest.setPictureUrls(pictureUrlsDTO.getPictureUrls());
-        userRequest.setAvatarPictures(avatarPictures);
+        userRequest.setPictureUrls(pictureUrlsDTO.getPictureUrls()); // set urls on image
+        userRequest.setAvatarPictures(avatarPictures); // set the path to the processed images
 
-        userRequestService.save(userRequest);
+        userRequestService.save(userRequest); // save to db
 
-        return new UserIdDTO(userRequest.getId());
+        return new UserIdDTO(userRequest.getId()); // send request id
     }
 }
