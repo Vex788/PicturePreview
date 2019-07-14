@@ -12,4 +12,14 @@ Create a New project/Spring Initializr(select Default and click Next)/in next wi
 ## After the tests
 You can view the pictures in the directory "C://images". All pictures are 100x100.
 ## Api 
-Send collection of picture urls on localhost:8080/set and get answer in Json format which have id request. To get a collection of links to processed images send localhost:8080/get in request body must have a Json with id request. 
+Send collection of picture urls on 
+```url
+localhost:8080/set
+```
+and get answer in Json format which have id request.
+
+If you want to get a collection of links to processed images send 
+```url
+localhost:8080/get 
+```
+in request body must have a Json with id request. 
