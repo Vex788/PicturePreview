@@ -12,14 +12,37 @@ Create a New project/Spring Initializr(select Default and click Next)/in next wi
 ## After the tests
 You can view the pictures in the directory "C://images". All pictures are 100x100.
 ## Api 
-Send collection of picture urls on 
+Send collection of picture urls
+```json
+{
+  "pictureUrls":[
+    "https://i.ytimg.com/vi/YCaGYUIfdy4/maxresdefault.jpg",
+    "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+]}
+```
+on 
 ```url
 localhost:8080/set
 ```
-and get answer in Json format which have id request.
+and get answer 
+in Json format
+```json
+{"id":54368}
+```
+which have id request.
 
-If you want to get a collection of links to processed images send 
+If you want to get a collection of links to processed images send your id
+```json
+{"id":54368}
+```
 ```url
 localhost:8080/get 
 ```
-in request body must have a Json with id request. 
+and get urls on images.
+```json
+{
+  "avatarPictures":[
+    "url_1",
+    "url_2"
+]}
+```
