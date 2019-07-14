@@ -20,7 +20,7 @@ Send collection of picture urls
     "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
 ]}
 ```
-on 
+on url
 ```url
 localhost:8080/set
 ```
@@ -35,10 +35,11 @@ If you want to get a collection of links to processed images send your id
 ```json
 {"id":54368}
 ```
+on url
 ```url
 localhost:8080/get 
 ```
-and get urls on images.
+and get Json with urls to the images.
 ```json
 {
   "avatarPictures":[
