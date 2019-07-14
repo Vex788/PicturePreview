@@ -17,7 +17,7 @@ public class DemoApplication {
         return new CommandLineRunner() {
             @Override
             public void run(String... strings) throws Exception {
-                System.out.println("working");
+                System.out.println("Attention the system works)");
             }
         };
     }
