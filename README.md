@@ -43,7 +43,7 @@ and get Json with urls to the images.
 ```json
 {
   "avatarPictures":[
-    "url_1",
-    "url_2"
+    "url_1/548_285075.jpg",
+    "url_2/548_538651.jpg"
 ]}
 ```
